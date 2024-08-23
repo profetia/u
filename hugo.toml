@@ -1,21 +1,27 @@
-baseURL = "https://athul.github.io/"
+baseURL = "https://profetia.github.io/u"
 languageCode = "en-us"
-title = "Archie"
+title = "Union of Progressive Peoples"
 theme = "archie"
-copyright = "© Athul"
+copyright = "© Linshu Yang"
+
 pygmentsstyle = "monokai"
 pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
 paginate = 4
 
 [params]
-favicon = "https://img.icons8.com/officel/16/000000/chevron-right.png"
-og_image = "https://raw.githubusercontent.com/athul/archie/master/images/archie-dark.png"
+favicon = "favicon.ico"
+og_image = "images/upp.webp"
 # mode = "auto"
 mode = "toggle"
 useCDN = true
-subtitle = "Minimal and Clean [blog theme for Hugo](https://github.com/athul/archie)"
-description = "Archie is a Minimal and Clean theme for Hugo"
+subtitle = "Unity, Progress, People"
+description = "Unity, Progress, People"
+
+[[params.social]]
+name = "Mail"
+icon = "mail"
+url = "mailto:yanglsh@shanghaitech.edu.cn"
 
 [[params.social]]
 name = "GitHub"
@@ -23,14 +29,9 @@ icon = "github"
 url = "https://github.com/athul/archie"
 
 [[params.social]]
-name = "Twitter"
-icon = "twitter"
-url = "https://github.com/athulcajay/"
-
-[[params.social]]
-name = "GitLab"
-icon = "gitlab"
-url = "https://gitlab.com/athul/"
+name = "LinkedIn"
+icon = "linkedin"
+url = "https://www.linkedin.com/in/linshu-yang-3398a425a/"
 
 [[menu.main]]
 name = "Home"
