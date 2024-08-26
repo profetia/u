@@ -9,6 +9,9 @@ pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
 paginate = 4
 
+[markup.goldmark.renderer]
+unsafe = true
+
 [params]
 favicon = "favicon.ico"
 og_image = "images/upp.webp"
