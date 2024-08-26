@@ -1,8 +1,8 @@
 ---
 title: 'Reading Notes for "DataStates-LLM: Lazy Asynchronous Checkpointing for Large Language Models"'
-description: "Checkpointing is a fundamental primitive in training LLMs. This paper proposes a noval mechanism of checkpointing called DataStates-LLM, providing better support for 3D parallelism and reducing the checkpointing overhead by pipelining the asynchronous data transfers between each level of the checkpointing process, leveraging the observation that the forward and backward passes take up the majority of the training time in each iteration."
+description: "Checkpointing is a fundamental primitive in training LLMs. This paper proposes a novel mechanism of checkpointing called DataStates-LLM, providing better support for 3D parallelism and reducing the checkpointing overhead in distributed training by pipelining the asynchronous data transfers between each level of the checkpointing process, leveraging the observation that the forward and backward passes take up the majority of the training time in each iteration."
 date: 2024-08-25
-tldr: "Checkpointing is a fundamental primitive in training LLMs. This paper proposes a noval mechanism of checkpointing called DataStates-LLM, providing better support for 3D parallelism and reducing the checkpointing overhead by pipelining the asynchronous data transfers between each level of the checkpointing process, leveraging the observation that the forward and backward passes take up the majority of the training time in each iteration."
+tldr: "Checkpointing is a fundamental primitive in training LLMs. This paper proposes a novel mechanism of checkpointing called DataStates-LLM, providing better support for 3D parallelism and reducing the checkpointing overhead in distributed training by pipelining the asynchronous data transfers between each level of the checkpointing process, leveraging the observation that the forward and backward passes take up the majority of the training time in each iteration."
 draft: false
 tags: ['papers', 'reading notes', 'mlsys', 'checkpointing']
 toc: true
@@ -54,4 +54,4 @@ The proposed design is implemented as a modular extension to the DeepSpeed runti
 
 * [Paper PDF](https://doi.org/10.1145/3625549.3658685)
 * [Paper Code](https://github.com/DataStates/datastates-llm)
-* [Effcient Training on Multiple GPUs](https://huggingface.co/docs/transformers/main/en/perf_train_gpu_many)
+* [Efficient Training on Multiple GPUs](https://huggingface.co/docs/transformers/main/en/perf_train_gpu_many)
