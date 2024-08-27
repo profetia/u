@@ -12,10 +12,10 @@ toc: true
 
 Today's large language models (LLMs) are trained on massive datasets and require large models to achieve state-of-the-art performance. Training these models is computationally expensive and requires distributed training across multiple GPUs. 3D parallelism is a common technique to scale training to large models and datasets, it includes:
 
-* Data Parallelism: it creates replicas of the model on multiple workers and partitions the data across them. Gradients are aggregated across workers in the backward pass.
-* ZeRO Data Parallelism (ZeRO-DP): similar to data parallelism, but it maintains a single replica across workers and the full layer parameters are given on demand.
-* Pipeline Parallelism: it divides the model into stages and processes different parts of the input in parallel.
-* Tensor parallelism: it partitions tensors across multiple workers. They are processed in parallel and only aggregated when necessary.
+* **Data Parallelism**: it creates replicas of the model on multiple workers and partitions the data across them. Gradients are aggregated across workers in the backward pass.
+* **ZeRO Data Parallelism (ZeRO-DP)**: similar to data parallelism, but it maintains a single replica across workers and the full layer parameters are given on demand.
+* **Pipeline Parallelism**: it divides the model into stages and processes different parts of the input in parallel.
+* **Tensor parallelism**: it partitions tensors across multiple workers. They are processed in parallel and only aggregated when necessary.
 
 ![3D Parallelism](https://www.microsoft.com/en-us/research/uploads/prodnew/2020/09/Blog_DeepSpeed3_Figure2_highres.png)
 
@@ -29,18 +29,18 @@ In this paper, the authors proposed a two-level checkpointing mechanism called D
 * LLM checkpoint size grows quadratically due to the explosion of the optimizer state size.
 * The forward and backward passes take up the majority of the training time in each iteration.
 
-![Two Observations](../key-observations.png)
+![Two Observations](../2024-08-25-reading-notes-datastates-llm-key-observations.png)
 
 ## Design and Implementation
 
 ### Design Principles
 
-* Coalescing of GPU Model/Optimizer Shards to Host Memory: the proposed design coalesces the copies of the shards to host memory with pre-allocated pinned buffers, eliminating the need to wait for the flushes of the shards belonging to the same checkpoint.
-* Lazy Non-Blocking Copies Overlapping with Forward and Backward Pass: the proposed design overlaps the copies of the shards with the forward and backward passes, leveraging the observation of immutability.
-* Streamlined Multi-level Flushing to Persistent Storage: the proposed design pipelines the device-to-host copies and the host-to-storage writes, reducing the I/O overhead in checkpointing.
-* Asynchronous Distributed Consolidation of Model and Optimizer Shards: the proposed design supports asynchronous consensus protocols in every level of the checkpointing process.
+* **Coalescing of GPU Model/Optimizer Shards to Host Memory**: the proposed design coalesces the copies of the shards to host memory with pre-allocated pinned buffers, eliminating the need to wait for the flushes of the shards belonging to the same checkpoint.
+* **Lazy Non-Blocking Copies Overlapping with Forward and Backward Pass**: the proposed design overlaps the copies of the shards with the forward and backward passes, leveraging the observation of immutability.
+* **Streamlined Multi-level Flushing to Persistent Storage**: the proposed design pipelines the device-to-host copies and the host-to-storage writes, reducing the I/O overhead in checkpointing.
+* **Asynchronous Distributed Consolidation of Model and Optimizer Shards**: the proposed design supports asynchronous consensus protocols in every level of the checkpointing process.
 
-![Design Principles](../design-principles.png)
+![Design Principles](../2024-08-25-reading-notes-datastates-llm-design-principles.png)
 
 ### Implementation Details
 
@@ -48,7 +48,7 @@ The proposed design is implemented as a modular extension to the DeepSpeed runti
 
 ## Evaluation
 
-![Evaluation](../evaluation.png)
+![Evaluation](../2024-08-25-reading-notes-datastates-llm-evaluation.png)
 
 ## Links and References
 
