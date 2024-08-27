@@ -12,6 +12,12 @@ paginate = 4
 [markup.goldmark.renderer]
 unsafe = true
 
+[markup.goldmark.extensions.passthrough]
+enable = true
+[markup.goldmark.extensions.passthrough.delimiters]
+block = [['\[', '\]'], ['$$', '$$']]
+inline = [['\(', '\)']]
+
 [params]
 favicon = "favicon.ico"
 og_image = "images/upp.webp"
