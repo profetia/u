@@ -12,6 +12,7 @@
         "FSDP",
         "goldmark",
         "isset",
+        "libaio",
         "Linshu",
         "Memcpy",
         "minibatch",

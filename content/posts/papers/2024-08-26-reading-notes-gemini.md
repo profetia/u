@@ -20,6 +20,8 @@ Since the CPU memory is much larger than the GPU memory and hence can store more
 * How to maximize the probability of failure recovery from checkpoints stored in CPU memory?
 * How to minimize the interference of checkpoint traffic with model training?
 
+In this paper, the authors present Gemini, a system that utilizes the CPU memory to store the latest checkpoint, along with a near-optimal checkpoint placement algorithm and a fine-grained traffic scheduling algorithm to reduce the failure recovery time.
+
 ## Design and Implementation
 
 The architecture of Gemini consists of two components: the checkpoint creation module and failure recovery module.

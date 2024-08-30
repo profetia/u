@@ -17,8 +17,6 @@ Training a DNN is a highly time-consuming process, especially for large models a
 * Checkpointing is Inefficient: checkpointing is performed by the end of an epoch and the checkpointing frequency is scheduled naively, leading to a high overhead.
 * Incomplete Checkpointing: the state of the dataloader is not included in the checkpoint, violating data invariant.
 
-> Remark: data invariant is no longer considered to be an important problem in the era of LLMs.
-
 To address these limitations, the authors proposed a novel checkpointing technique called CheckFreq, which offers a low-cost checkpointing mechanism, a resumable dataloader, and a fine-grained systematic method to determine the checkpointing frequency at runtime.
 
 ## Design and Implementation

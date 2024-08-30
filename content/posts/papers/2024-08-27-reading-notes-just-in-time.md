@@ -1,8 +1,8 @@
 ---
 title: 'Reading Notes for "Just-In-Time Checkpointing: Low Cost Error Recovery from Deep Learning Training Failures"'
 date: 2024-08-27T22:21:09+08:00
-description: "A large amount of GPU work is wasted in periodic checkpointing and recovery. This paper proposes a just-in-time checkpointing mechanism that checkpoints the model only when a failure is detected, exploiting the fact that most errors occur due to failures of a single GPU or network device and replicas exists across all GPUs in data parallelism."
-tldr: "A large amount of GPU work is wasted in periodic checkpointing and recovery. This paper proposes a just-in-time checkpointing mechanism that checkpoints the model only when a failure is detected, exploiting the fact that most errors occur due to failures of a single GPU or network device and replicas exists across all GPUs in data parallelism." 
+description: "A large amount of GPU work is wasted in periodic checkpointing and recovery. This paper proposes a just-in-time checkpointing mechanism that checkpoints the model only when a failure is detected, exploiting the fact that most errors occur due to failures of a single GPU or network device and replicas exists across all GPUs in data parallelism, reducing the checkpointing overhead to negligible levels."
+tldr: "A large amount of GPU work is wasted in periodic checkpointing and recovery. This paper proposes a just-in-time checkpointing mechanism that checkpoints the model only when a failure is detected, exploiting the fact that most errors occur due to failures of a single GPU or network device and replicas exists across all GPUs in data parallelism, reducing the checkpointing overhead to negligible levels."
 draft: false
 tags: ['papers', 'reading notes', 'mlsys', 'checkpointing']
 toc: true
@@ -29,7 +29,7 @@ The proposed solution includes an user-level and a transparent approach. The use
 
 The first challenge in implementing the proposed solution is detecting failures. Leveraging the fact that collective communication operations hang if one rank fails, the proposed solution uses a watchdog thread that monitors the `cudaEvents` on NCCL streams and triggers a timeout if the all-reduce operation hangs. Then the checkpointing process is initiated to save the GPU state. The aforementioned mechanism is implemented as an interception of CUDA and NCCL calls using LD_PRELOAD.
 
-![Computation and Communication](../2024-08-26-reading-notes-just-in-time-hang.png)
+![Computation and Communication](../2024-08-27-reading-notes-just-in-time-hang.png)
 
 The second challenge is to correctly checkpointing the GPU state. In the user-level approach, an user-defined callback is called to save the GPU state. In practice, calling the user-defined Python function from a hanging context poses two problems:
 
@@ -103,7 +103,7 @@ $$
 
 ### Experiments
 
-![Evaluation](../2024-08-26-reading-notes-just-in-time-eval.png)
+![Evaluation](../2024-08-27-reading-notes-just-in-time-eval.png)
 
 ## Links and References
 
