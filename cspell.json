@@ -12,6 +12,7 @@
         "FSDP",
         "goldmark",
         "isset",
+        "Jinping",
         "libaio",
         "Linshu",
         "Memcpy",
@@ -24,6 +25,7 @@
         "pygmentscodefences",
         "pygmentscodefencesguesssyntax",
         "pygmentsstyle",
+        "shanghaitech",
         "tldr",
         "webp"
     ],
