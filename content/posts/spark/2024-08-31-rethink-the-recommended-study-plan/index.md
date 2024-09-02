@@ -36,7 +36,7 @@ In summary, it is true that attending classes not only undermines your grades bu
 
 Now let's take a look at the curriculum and recommended study plan for freshmen at ShanghaiTech University in 2024.
 
-![alt text](../2024-08-31-rethink-the-recommended-study-plan-curriculum.png)
+![Recommended Study Plan](curriculum.png)
 
 Compared to the previous curriculum, the curriculum of 2024 reduces the required credits for chemistry and biology. However, students are required to take more courses in liberal arts and social sciences, such as Introduction to Philosophy and Introduction to Xi Jinping Thought on Socialism with Chinese Characteristics for a New Era. Furthermore, Physical Education is now extended to the third year.
 
@@ -54,7 +54,7 @@ The first reason can be explained easily with the requirements of reality. As fo
 
 Based on the reasons above, I propose the following alternative strategy for freshmen at ShanghaiTech University in 2024:
 
-![Alternative Strategy](../2024-08-31-rethink-the-recommended-study-plan-alternative.png)
+![Alternative Strategy](alternative-plan.png)
 
 The first difference you may notice is that the liberal arts and social science courses are moved to the last year. The three-year timeline of the outcome options indicates that the last year is the least important one. No matter what you do in the last year, it will not change your future outcome. This approach allows you to focus on your field of study in the first three years and is also beneficial for your GPA.
 

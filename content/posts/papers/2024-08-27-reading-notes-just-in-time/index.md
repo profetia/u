@@ -29,7 +29,7 @@ The proposed solution includes an user-level and a transparent approach. The use
 
 The first challenge in implementing the proposed solution is detecting failures. Leveraging the fact that collective communication operations hang if one rank fails, the proposed solution uses a watchdog thread that monitors the `cudaEvents` on NCCL streams and triggers a timeout if the all-reduce operation hangs. Then the checkpointing process is initiated to save the GPU state. The aforementioned mechanism is implemented as an interception of CUDA and NCCL calls using LD_PRELOAD.
 
-![Computation and Communication](../2024-08-27-reading-notes-just-in-time-hang.png)
+![Computation and Communication](hang.png)
 
 The second challenge is to correctly checkpointing the GPU state. In the user-level approach, an user-defined callback is called to save the GPU state. In practice, calling the user-defined Python function from a hanging context poses two problems:
 
@@ -103,7 +103,7 @@ $$
 
 ### Experiments
 
-![Evaluation](../2024-08-27-reading-notes-just-in-time-eval.png)
+![Evaluation](eval.png)
 
 ## Links and References
 

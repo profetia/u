@@ -15,7 +15,7 @@ Writing checkpoints to persistent storage, from the perspective of I/O, is mostl
 
 Previous efforts have been made to exploit the bandwidth capacities of SSDs for various workloads. However, existing checkpointing solutions utilize the SSD bandwidth poorly in both individual and parallel writes. Meanwhile, asynchronous checkpointing schemes risk data loss due to the use of volatile memory. Combining the two makes existing solutions unsuitable for frequent checkpointing, which leads to high recovery costs in case of failure.
 
-![Suboptimal Utilization of I/O](../2024-08-28-reading-notes-fastpersist-ssd-io.png)
+![Suboptimal Utilization of I/O](ssd-io.png)
 
 In this paper, the authors address the above aforementioned problems proposing FastPersist, which is optimized for NVMe SSDs and provides efficient algorithms for parallel checkpoint writes into SSDs.
 
@@ -32,13 +32,13 @@ FastPersist combines three optimizations to improve checkpointing of deep learni
   * Scheme for partitioning is determined before training starts and ensures the balance among ranks.
 * **Pipelining Checkpoint Writes**: FastPersist pipelines the checkpoint writes to the SSDs by overlapping the computation and I/O operations.
 
-![Acceleration and Parallelizing Checkpoint Writes](../2024-08-28-reading-notes-fastpersist-design.png)
+![Acceleration and Parallelizing Checkpoint Writes](design.png)
 
 FastPersist is implemented in both PyTorch and DeepSpeed. CUDA multiprocessing is used to implement the pipelining of checkpoint writes.
 
 ## Evaluation
 
-![Evaluation](../2024-08-28-reading-notes-fastpersist-eval.png)
+![Evaluation](eval.png)
 
 ## Links and References
 

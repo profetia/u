@@ -29,7 +29,7 @@ In this paper, the authors proposed a two-level checkpointing mechanism called D
 * LLM checkpoint size grows quadratically due to the explosion of the optimizer state size.
 * The forward and backward passes take up the majority of the training time in each iteration.
 
-![Two Observations](../2024-08-25-reading-notes-datastates-llm-key-observations.png)
+![Two Observations](key-observations.png)
 
 ## Design and Implementation
 
@@ -40,7 +40,7 @@ In this paper, the authors proposed a two-level checkpointing mechanism called D
 * **Streamlined Multi-level Flushing to Persistent Storage**: the proposed design pipelines the device-to-host copies and the host-to-storage writes, reducing the I/O overhead in checkpointing.
 * **Asynchronous Distributed Consolidation of Model and Optimizer Shards**: the proposed design supports asynchronous consensus protocols in every level of the checkpointing process.
 
-![Design Principles](../2024-08-25-reading-notes-datastates-llm-design-principles.png)
+![Design Principles](design-principles.png)
 
 ### Implementation Details
 
@@ -48,7 +48,7 @@ The proposed design is implemented as a modular extension to the DeepSpeed runti
 
 ## Evaluation
 
-![Evaluation](../2024-08-25-reading-notes-datastates-llm-evaluation.png)
+![Evaluation](evaluation.png)
 
 ## Links and References
 

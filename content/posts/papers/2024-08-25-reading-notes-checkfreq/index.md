@@ -28,19 +28,19 @@ CheckFreq first implemented a two-phase asynchronous checkpointing mechanism, wh
 
 CheckFreq guarantees that only one checkpointing operation is performed in the background. As for the dataloader state, CheckFreq implemented a resumable dataloader by storing the seed of the dataloader and corresponding indices.
 
-![Two Phase Checkpointing](../2024-08-25-reading-notes-checkfreq-two-phase-checkpointing.png)
+![Two Phase Checkpointing](two-phase-checkpointing.png)
 
 To determine the checkpointing frequency, CheckFreq first profiles several metrics of the training process, including  the iteration time (\(T_i\)), time to perform weight update (\(T_w\)), time to create an in-memory GPU copy (\(T_g\)), time to create an in-memory CPU copy (\(T_c\)), time to write to storage (\(T_s\)), size of checkpoint (\(m\)), peak GPU memory utilization (\(M\)), and total GPU memory (\(M_{max}\)).
 
 The checkpointing frequency is then determined by the following algorithm. It also determines the mode (CPU or GPU-based) of the snapshot phase.
 
-![Algorithm for checkpointing frequency](../2024-08-25-reading-notes-checkfreq-checkpointing-freq.png)
+![Algorithm for checkpointing frequency](checkpointing-freq.png)
 
 ## Evaluation
 
-![Evaluation for checkpoint stalls](../2024-08-25-reading-notes-checkfreq-evaluation-stall.png)
+![Evaluation for checkpoint stalls](evaluation-stall.png)
 
-![Evaluation for training overhead](../2024-08-25-reading-notes-checkfreq-evaluation-overhead.png.png)
+![Evaluation for training overhead](evaluation-overhead.png.png)
 
 ## Links and References
 
